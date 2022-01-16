@@ -1,49 +1,30 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:appli_festival/route_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import 'artistListScreen.dart';
-import 'loginScreen.dart';
+import 'HomePage.dart';
 
-
-// void main() {
-//   runApp(MaterialApp(
-//     title: 'routes',
-//     // Start the app with the "/" named route. In this case, the app starts
-//     // on the FirstScreen widget.
-//     initialRoute: '/',
-//     routes: {
-//       // When navigating to the "/" route, build the FirstScreen widget.
-//       '/': (context) => const MyApp(),
-//       // When navigating to the "/second" route, build the SecondScreen widget.
-//       '/login': (context) => const LoginScreen(),
-//     },
-//   ),);
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Welcome to Flutter',
-//       home: ArtistListScreen()
-//     );
-//   }
-//}
+final storage = FlutterSecureStorage();
 
 
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-
+    return MaterialApp(
+      title:'Hellfest',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
+    );
+  }
 }
 
 
